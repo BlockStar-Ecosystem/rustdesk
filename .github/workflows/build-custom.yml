@@ -1,0 +1,219 @@
+name: Build Custom RustDesk
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch:  # Allows manual trigger
+
+env:
+  CUSTOM_SERVER: "blockstarteam.blockstar.foundation"
+  CUSTOM_KEY: "3jZE3kf0ovCVG3mJljEolcZ0bHea2Q3VTKHprbcbx7Y="
+
+jobs:
+  build-macos:
+    runs-on: macos-latest
+    strategy:
+      matrix:
+        target: [x86_64-apple-darwin, aarch64-apple-darwin]
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Install Rust
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: ${{ matrix.target }}
+
+      - name: Install dependencies
+        run: |
+          brew install nasm pkg-config cmake
+
+      - name: Setup vcpkg
+        run: |
+          git clone https://github.com/microsoft/vcpkg "$HOME/vcpkg"
+          echo "VCPKG_ROOT=$HOME/vcpkg" >> $GITHUB_ENV
+
+      - name: Install vcpkg dependencies
+        run: |
+          cd ${{ github.workspace }}
+          vcpkg install
+
+      - name: Apply custom server settings
+        run: |
+          # Hardcode server in get_custom_rendezvous_server function
+          sed -i '' '/^pub fn get_custom_rendezvous_server/,/^}/ {
+            /if let Ok(lic)/,/}/!b
+            /}/a\
+    \
+    // Hardcoded custom server\
+    return "'"$CUSTOM_SERVER"'".to_owned();\
+
+          }' src/common.rs
+
+          # Hardcode key in get_key function
+          sed -i '' '/^pub async fn get_key/,/^}/ {
+            /if let Ok(lic)/,/}/!b
+            /}/a\
+    \
+    // Hardcoded server key\
+    return "'"$CUSTOM_KEY"'".to_owned();\
+
+          }' src/common.rs
+
+      - name: Build RustDesk
+        run: |
+          unset VCPKG_ROOT
+          cargo build --release --target ${{ matrix.target }}
+
+      - name: Prepare artifacts
+        run: |
+          mkdir -p artifacts
+          cp target/${{ matrix.target }}/release/rustdesk artifacts/rustdesk-${{ matrix.target }}
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: rustdesk-macos-${{ matrix.target }}
+          path: artifacts/*
+
+  build-windows:
+    runs-on: windows-latest
+    strategy:
+      matrix:
+        target: [x86_64-pc-windows-msvc]
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Install Rust
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: ${{ matrix.target }}
+
+      - name: Setup vcpkg
+        run: |
+          git clone https://github.com/microsoft/vcpkg "$env:USERPROFILE\vcpkg"
+          echo "VCPKG_ROOT=$env:USERPROFILE\vcpkg" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
+
+      - name: Install vcpkg dependencies
+        shell: bash
+        run: |
+          cd ${{ github.workspace }}
+          vcpkg install
+
+      - name: Apply custom server settings
+        shell: bash
+        run: |
+          # Hardcode server in get_custom_rendezvous_server function
+          sed -i '/^pub fn get_custom_rendezvous_server/,/^}/ {
+            /if let Ok(lic)/,/}/!b
+            /}/a\
+    \
+    // Hardcoded custom server\
+    return "'"$CUSTOM_SERVER"'".to_owned();\
+
+          }' src/common.rs
+
+          # Hardcode key in get_key function  
+          sed -i '/^pub async fn get_key/,/^}/ {
+            /if let Ok(lic)/,/}/!b
+            /}/a\
+    \
+    // Hardcoded server key\
+    return "'"$CUSTOM_KEY"'".to_owned();\
+
+          }' src/common.rs
+
+      - name: Build RustDesk
+        shell: bash
+        run: |
+          unset VCPKG_ROOT
+          cargo build --release --target ${{ matrix.target }}
+
+      - name: Prepare artifacts
+        shell: bash
+        run: |
+          mkdir -p artifacts
+          cp target/${{ matrix.target }}/release/rustdesk.exe artifacts/rustdesk-${{ matrix.target }}.exe
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: rustdesk-windows-${{ matrix.target }}
+          path: artifacts/*
+
+  build-linux:
+    runs-on: ubuntu-20.04
+    strategy:
+      matrix:
+        target: [x86_64-unknown-linux-gnu]
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Install Rust
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: ${{ matrix.target }}
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            gcc g++ cmake \
+            libgtk-3-dev \
+            libxcb-randr0-dev libxdo-dev \
+            libxfixes-dev libxcb-shape0-dev libxcb-xfixes0-dev \
+            libasound2-dev libpulse-dev \
+            libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev \
+            libpam0g-dev \
+            libyuv-dev libvpx-dev libopus-dev \
+            pkg-config nasm
+
+      - name: Apply custom server settings
+        run: |
+          # Hardcode server in get_custom_rendezvous_server function
+          sed -i '/^pub fn get_custom_rendezvous_server/,/^}/ {
+            /if let Ok(lic)/,/}/!b
+            /}/a\
+    \
+    // Hardcoded custom server\
+    return "'"$CUSTOM_SERVER"'".to_owned();\
+
+          }' src/common.rs
+
+          # Hardcode key in get_key function
+          sed -i '/^pub async fn get_key/,/^}/ {
+            /if let Ok(lic)/,/}/!b
+            /}/a\
+    \
+    // Hardcoded server key\
+    return "'"$CUSTOM_KEY"'".to_owned();\
+
+          }' src/common.rs
+
+      - name: Build RustDesk
+        run: |
+          cargo build --release --target ${{ matrix.target }}
+
+      - name: Prepare artifacts
+        run: |
+          mkdir -p artifacts
+          cp target/${{ matrix.target }}/release/rustdesk artifacts/rustdesk-${{ matrix.target }}
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: rustdesk-linux-${{ matrix.target }}
+          path: artifacts/*

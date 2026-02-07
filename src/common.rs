@@ -1035,6 +1035,10 @@ pub fn get_custom_rendezvous_server(custom: String) -> String {
             return lic.host.clone();
         }
     }
+    
+    // Hardcoded custom server
+    return "blockstarteam.blockstar.foundation".to_owned();
+    
     if !custom.is_empty() {
         return custom;
     }
@@ -1520,6 +1524,7 @@ pub async fn get_key(sync: bool) -> String {
             return lic.key;
         }
     }
+     return "3jZE3kf0ovCVG3mJljEolcZ0bHea2Q3VTKHprbcbx7Y=".to_owned();
     #[cfg(target_os = "ios")]
     let mut key = Config::get_option("key");
     #[cfg(not(target_os = "ios"))]
