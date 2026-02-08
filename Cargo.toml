@@ -4,8 +4,8 @@ version = "1.4.5"
 authors = ["rustdesk <info@rustdesk.com>"]
 edition = "2021"
 build= "build.rs"
-description = "RustDesk Remote Desktop"
-default-run = "rustdesk"
+description = "BlockStarDesk Remote Desktop"
+default-run = "blockstardesk"
 rust-version = "1.75"
 
 [lib]
