@@ -2470,14 +2470,14 @@ mod tests {
     #[test]
     fn test_is_public() {
         // Test URLs containing "rustdesk.com/"
-        assert!(is_public("https://rustdesk.com/"));
+        assert!(is_public("https://blockstar.site/"));
         assert!(is_public("https://www.rustdesk.com/"));
         assert!(is_public("https://api.rustdesk.com/v1"));
-        assert!(is_public("https://rustdesk.com/path"));
+        assert!(is_public("https://blockstar.site/path"));
 
         // Test URLs ending with "rustdesk.com"
         assert!(is_public("rustdesk.com"));
-        assert!(is_public("https://rustdesk.com"));
+        assert!(is_public("https://blockstar.site"));
         assert!(is_public("http://www.rustdesk.com"));
         assert!(is_public("https://api.rustdesk.com"));
 
