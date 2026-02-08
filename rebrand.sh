@@ -13,7 +13,7 @@ echo ""
 NEW_NAME="BlockStarDesk"
 NEW_NAME_LOWER="blockstardesk"
 NEW_BUNDLE_ID="com.blockstar.blockstardesk"
-OLD_BUNDLE_ID="com.carriez.rustdesk"
+OLD_BUNDLE_ID="com.blockstar.blockstardesk"
 
 # Check if in rustdesk directory
 if [ ! -f "Cargo.toml" ]; then
@@ -22,7 +22,7 @@ if [ ! -f "Cargo.toml" ]; then
 fi
 
 echo "📝 Starting rebrand..."
-echo "   Old: RustDesk (com.carriez.rustdesk)"
+echo "   Old: RustDesk (com.blockstar.blockstardesk)"
 echo "   New: $NEW_NAME ($NEW_BUNDLE_ID)"
 echo ""
 
