@@ -1,6 +1,4 @@
-package com.blockstar.blockstardesk
-
-import com.blockstar.blockstardesk.R
+package com.carriez.flutter_hbb
 
 /**
  * Handle events from flutter

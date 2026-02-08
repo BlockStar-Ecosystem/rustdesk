@@ -1,4 +1,4 @@
-package com.blockstar.blockstardesk
+package com.carriez.flutter_hbb
 
 import android.annotation.SuppressLint
 import android.app.PendingIntent

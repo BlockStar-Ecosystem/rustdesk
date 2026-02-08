@@ -1,4 +1,4 @@
-package com.blockstar.blockstardesk
+package com.carriez.flutter_hbb
 
 /**
  * Handle remote input and dispatch android gesture

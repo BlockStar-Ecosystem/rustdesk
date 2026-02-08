@@ -8,7 +8,7 @@
 PRODUCT_NAME = RustDesk
 
 // The application's bundle identifier
-PRODUCT_BUNDLE_IDENTIFIER = com.blockstar.blockstardesk
+PRODUCT_BUNDLE_IDENTIFIER = com.carriez.flutterHbb
 
 // The copyright displayed in application information
-PRODUCT_COPYRIGHT = Copyright © 2026 BlockStar. All rights reserved.
+PRODUCT_COPYRIGHT = Copyright © 2026 blockstar.site. All rights reserved.
