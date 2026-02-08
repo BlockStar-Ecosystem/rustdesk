@@ -624,7 +624,7 @@ pub static ref T: std::collections::HashMap<&'static str, &'static str> =
         ("enable-bot-desc", "1, Ireki txat bat @BotFather bot-arekin.\n2, Bidali \"/newbot\" agindua. Token bat jasoko duzu urrats honen ostean.\n3, Hasi txat bat zure bot berriarekin. Bidali mezu bat aurreko barra batekin (\"/\") \"/kaixo\" bezala gaitzeko.\n"),
         ("cancel-2fa-confirm-tip", ""),
         ("cancel-bot-confirm-tip", ""),
-        ("About RustDesk", ""),
+        ("About BlockStarDesk", ""),
         ("Send clipboard keystrokes", ""),
         ("network_error_tip", ""),
         ("Unlock with PIN", ""),

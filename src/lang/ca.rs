@@ -624,7 +624,7 @@ pub static ref T: std::collections::HashMap<&'static str, &'static str> =
         ("enable-bot-desc", "1. Obriu un xat amb @BotFather.\n2. Envieu l'ordre \"/newbot\". Rebreu un testimoni en acompletar aquest pas.\n3. Inicieu una conversa amb el vostre bot nou que acabeu de crear, enviant un missatge que comenci amb (\"/\"), com ara \"/hello\" per a activar-lo.\n"),
         ("cancel-2fa-confirm-tip", "Segur que voleu cancel·lar l'autenticació 2FA?"),
         ("cancel-bot-confirm-tip", "Segur que voleu cancel·lar el bot de Telegram?"),
-        ("About RustDesk", "Quant al RustDesk"),
+        ("About BlockStarDesk", "Quant al RustDesk"),
         ("Send clipboard keystrokes", "Envia les pulsacions de tecles del porta-retalls"),
         ("network_error_tip", "Verifiqueu la vostra connexió a Internet i torneu a provar"),
         ("Unlock with PIN", "Desbloca amb PIN"),
