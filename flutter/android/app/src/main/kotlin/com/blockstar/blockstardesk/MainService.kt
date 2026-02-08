@@ -1,4 +1,4 @@
-package com.carriez.flutter_hbb
+import com.blockstar.blockstardesk.R
 
 import ffi.FFI
 
@@ -632,9 +632,9 @@ class MainService : Service() {
         val notification = notificationBuilder
             .setOngoing(true)
             .setSmallIcon(R.mipmap.ic_stat_logo)
-            .setDefaults(Notification.DEFAULT_ALL)
+            .setDefaults(NotificationCompat.DEFAULT_ALL)
+.           setPriority(NotificationCompat.PRIORITY_HIGH)
             .setAutoCancel(true)
-            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
             .setContentTitle(DEFAULT_NOTIFY_TITLE)
             .setContentText(translate(DEFAULT_NOTIFY_TEXT))
             .setOnlyAlertOnce(true)
