@@ -2,7 +2,7 @@
 name = "rustdesk-portable-packer"
 version = "1.4.5"
 edition = "2021"
-description = "BlockStarDesk Remote Desktop"
+description = "BlockStar Desktop Remote Desktop"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
@@ -27,9 +27,9 @@ native-windows-gui = {version = "1.0", default-features = false, features = ["an
 
 [package.metadata.winres]
 LegalCopyright = "Copyright © 2026 blockstar.site. All rights reserved."
-ProductName = "BlockStarDesk"
+ProductName = "BlockStar Desktop"
 OriginalFilename = "rustdesk.exe"
-FileDescription = "BlockStarDesk Remote Desktop"
+FileDescription = "BlockStar Desktop Remote Desktop"
 #ProductVersion = ""
 
 [target.'cfg(target_os="windows")'.build-dependencies]

@@ -14,10 +14,10 @@ jobs:
   # Finds latest release and transforms F-Droid version code from version as follows:
   # X.Y.Z-A => X * 1e6 + Y * 1e4 + Z * 1e2 + A
   update-fdroid-version-file:
-    name: Publish BlockStarDesk version file for F-Droid updater
+    name: Publish BlockStar Desktop version file for F-Droid updater
     runs-on: ubuntu-latest
     steps:
-      - name: Generate BlockStarDesk version file
+      - name: Generate BlockStar Desktop version file
         run: |
           if [ "${GITHUB_REF_TYPE}" = "tag" ]; then
             UPSTREAM_VERNAME="${GITHUB_REF##refs/tags/}"
@@ -30,7 +30,7 @@ jobs:
           echo "versionCode=$UPSTREAM_VERCODE" >> rustdesk-version.txt
         shell: bash
 
-      - name: Publish BlockStarDesk version file
+      - name: Publish BlockStar Desktop version file
         uses: softprops/action-gh-release@v1
         with:
           prerelease: true

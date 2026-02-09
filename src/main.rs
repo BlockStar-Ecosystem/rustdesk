@@ -46,7 +46,7 @@ fn main() {
         -k, --key=[KEY] ''
        -s, --server=[] 'Start server'",
     );
-    let matches = App::new("blockstardesktop")
+    let matches = App::new("rustdesk")
         .version(crate::VERSION)
         .author("BlockStar Ltd<info@blockstar.site>")
         .about("BlockStar Desktop command line tool")

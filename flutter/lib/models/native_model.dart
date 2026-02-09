@@ -118,11 +118,11 @@ class PlatformFFI {
   Future<void> init(String appType) async {
     _appType = appType;
     final dylib = isAndroid
-        ? DynamicLibrary.open('libblockstardesktop.so')
+        ? DynamicLibrary.open('librustdesk.so')
         : isLinux
-            ? DynamicLibrary.open('libblockstardesktop.so')
+            ? DynamicLibrary.open('librustdesk.so')
             : isWindows
-                ? DynamicLibrary.open('libblockstardesktop.dll')
+                ? DynamicLibrary.open('librustdesk.dll')
                 :
                 // Use executable itself as the dynamic library for MacOS.
                 // Multiple dylib instances will cause some global instances to be invalid.

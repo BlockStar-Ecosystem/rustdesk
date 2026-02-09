@@ -312,7 +312,7 @@ fn correct_app_name(s: &str) -> String {
     if let Some(bundleid) = get_bundle_id() {
         s = s.replace("com.carriez.rustdesk", &bundleid);
     }
-    s = s.replace("blockstardesktop", &crate::get_app_name().to_lowercase());
+    s = s.replace("rustdesk", &crate::get_app_name().to_lowercase());
     s = s.replace("BlockStar Desktop", &crate::get_app_name());
     s
 }

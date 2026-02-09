@@ -5,9 +5,9 @@ After=systemd-user-sessions.service
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/blockstardesktop --service
-ExecStop=pkill -f "blockstardesktop --"
-PIDFile=/run/blockstardesktop.pid
+ExecStart=/usr/bin/rustdesk --service
+ExecStop=pkill -f "rustdesk --"
+PIDFile=/run/rustdesk.pid
 KillMode=mixed
 TimeoutStopSec=30
 User=root

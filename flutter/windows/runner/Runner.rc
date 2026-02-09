@@ -92,9 +92,9 @@ BEGIN
             VALUE "CompanyName", "Blockstar Ltd" "\0"
             VALUE "FileDescription", "BlockStar Desktop Remote Desktop" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "blockstardesktop" "\0"
+            VALUE "InternalName", "rustdesk" "\0"
             VALUE "LegalCopyright", "Copyright © 2026 blockstar.site. All rights reserved." "\0"
-            VALUE "OriginalFilename", "blockstardesktop.exe" "\0"
+            VALUE "OriginalFilename", "rustdesk.exe" "\0"
             VALUE "ProductName", "BlockStar Desktop" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END

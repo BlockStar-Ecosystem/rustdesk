@@ -1,15 +1,15 @@
 [package]
-name = "blockstardesktop"
+name = "rustdesk"
 version = "1.4.5"
 authors = ["blockstar <info@blockstar.site>"]
 edition = "2021"
 build= "build.rs"
-description = "BlockStarDesk Remote Desktop"
-default-run = "blockstardesktop"
+description = "BlockStar Desktop Remote Desktop"
+default-run = "rustdesk"
 rust-version = "1.75"
 
 [lib]
-name = "libblockstardesktop"
+name = "librustdesk"
 crate-type = ["cdylib", "staticlib", "rlib"]
 
 [[bin]]
@@ -214,8 +214,8 @@ libxdo-sys = { path = "libs/libxdo-sys-stub" }
 
 [package.metadata.winres]
 LegalCopyright = "Copyright © 2026 blockstar.site. All rights reserved."
-ProductName = "BlockStarDesk"
-FileDescription = "BlockStarDesk Remote Desktop"
+ProductName = "BlockStar Desktop"
+FileDescription = "BlockStar Desktop Remote Desktop"
 OriginalFilename = "rustdesk.exe"
 
 [target.'cfg(target_os="windows")'.build-dependencies]
@@ -232,7 +232,7 @@ hound = "3.5"
 docopt = "1.1"
 
 [package.metadata.bundle]
-name = "BlockStarDesk"
+name = "BlockStar Desktop"
 identifier = "com.carriez.rustdesk"
 icon = ["res/32x32.png", "res/128x128.png", "res/128x128@2x.png"]
 osx_minimum_system_version = "10.14"

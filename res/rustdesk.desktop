@@ -2,18 +2,18 @@
 Name=BlockStar Desktop
 GenericName=Remote Desktop
 Comment=Remote Desktop
-Exec=blockstardesktop %u
-Icon=blockstardesktop
+Exec=rustdesk %u
+Icon=rustdesk
 Terminal=false
 Type=Application
 StartupNotify=true
 Categories=Network;RemoteAccess;GTK;
 Keywords=internet;linux;dart;rust;remote-control;p2p;remote-desktop;vnc;
 Actions=new-window;
-StartupWMClass=blockstardesktop
+StartupWMClass=rustdesk
 
 X-Desktop-File-Install-Version=0.23
 
 [Desktop Action new-window]
 Name=Open a New Window
-Exec=blockstardesktop %u
+Exec=rustdesk %u

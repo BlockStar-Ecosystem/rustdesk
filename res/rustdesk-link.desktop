@@ -1,11 +1,11 @@
 [Desktop Entry]
 Name=BlockStar Desktop
 NoDisplay=true
-MimeType=x-scheme-handler/blockstardesktop;
-TryExec=blockstardesktop
-Exec=blockstardesktop %u
-Icon=blockstardesktop
+MimeType=x-scheme-handler/rustdesk;
+TryExec=rustdesk
+Exec=rustdesk %u
+Icon=rustdesk
 Terminal=false
 Type=Application
 StartupNotify=false
-StartupWMClass=blockstardesktop
+StartupWMClass=rustdesk

@@ -18,7 +18,7 @@ namespace RemotePrinter
 {
 #define HRESULT_ERR_ELEMENT_NOT_FOUND 0x80070490
 
-    LPCWCH RD_DRIVER_INF_PATH = L"drivers\\BlockStarDesktopPrinterDriver\\BlockStarDesktopPrinterDriver.inf";
+    LPCWCH RD_DRIVER_INF_PATH = L"drivers\\RustDeskPrinterDriver\\RustDeskPrinterDriver.inf";
     LPCWCH RD_PRINTER_PORT = L"BlockStarDesk Printer";
     LPCWCH RD_PRINTER_NAME = L"BlockStarDesk Printer";
     LPCWCH RD_PRINTER_DRIVER_NAME = L"BlockStarDesk v4 Printer Driver";
