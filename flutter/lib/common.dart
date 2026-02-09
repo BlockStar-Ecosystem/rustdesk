@@ -473,9 +473,9 @@ class MyTheme {
   static ThemeData darkTheme = ThemeData(
     useMaterial3: false,
     brightness: Brightness.dark,
-    hoverColor: Color.fromARGB(255, 45, 46, 53),
-    scaffoldBackgroundColor: Color(0xFF18191E),
-    dialogBackgroundColor: Color(0xFF18191E),
+    hoverColor: Color.fromARGB(255, 32, 32, 37),
+    scaffoldBackgroundColor: Color.fromARGB(255, 0, 0, 0),
+    dialogBackgroundColor: Color(0xFF0B0B0B),
     appBarTheme: AppBarTheme(
       shadowColor: Colors.transparent,
     ),
