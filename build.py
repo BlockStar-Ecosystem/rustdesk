@@ -414,7 +414,7 @@ def build_flutter_dmg(version, features):
     system2('cp -rf ../target/release/service ./build/macos/Build/Products/Release/BlockStarDesk.app/Contents/MacOS/')
     '''
     system2(
-        "create-dmg --volname \"RustDesk Installer\" --window-pos 200 120 --window-size 800 400 --icon-size 100 --app-drop-link 600 185 --icon BlockStarDesk.app 200 190 --hide-extension BlockStarDesk.app rustdesk.dmg ./build/macos/Build/Products/Release/BlockStarDesk.app")
+        "create-dmg --volname \"BlockStarDesk Installer\" --window-pos 200 120 --window-size 800 400 --icon-size 100 --app-drop-link 600 185 --icon BlockStarDesk.app 200 190 --hide-extension BlockStarDesk.app rustdesk.dmg ./build/macos/Build/Products/Release/BlockStarDesk.app")
     os.rename("rustdesk.dmg", f"../rustdesk-{version}.dmg")
     '''
     os.chdir("..")
@@ -497,7 +497,7 @@ def main():
             return
         system2('cargo build --release --features ' + features)
         # system2('upx.exe target/release/rustdesk.exe')
-        system2('mv target/release/rustdesk.exe target/release/RustDesk.exe')
+        system2('mv target/release/rustdesk.exe target/release/BlockStarDesk.exe')
         pa = os.environ.get('P')
         if pa:
             # https://certera.com/kb/tutorial-guide-for-safenet-authentication-client-for-code-signing/
@@ -507,7 +507,7 @@ def main():
         else:
             print('Not signed')
         system2(
-            f'cp -rf target/release/RustDesk.exe {res_dir}')
+            f'cp -rf target/release/BlockStarDesk.exe {res_dir}')
         os.chdir('libs/portable')
         system2('pip3 install -r requirements.txt')
         system2(
@@ -578,8 +578,8 @@ def main():
     codesign -s "Developer ID Application: {0}" --force --options runtime  ./target/release/bundle/osx/BlockStarDesk.app
     '''.format(pa))
                 system2(
-                    'create-dmg "RustDesk %s.dmg" "target/release/bundle/osx/BlockStarDesk.app"' % version)
-                os.rename('RustDesk %s.dmg' %
+                    'create-dmg "BlockStarDesk %s.dmg" "target/release/bundle/osx/BlockStarDesk.app"' % version)
+                os.rename('BlockStarDesk %s.dmg' %
                           version, 'rustdesk-%s.dmg' % version)
                 if pa:
                     system2('''
