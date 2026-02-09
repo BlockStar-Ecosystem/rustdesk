@@ -411,7 +411,18 @@ def build_flutter_dmg(version, features):
         "cp target/release/liblibrustdesk.dylib target/release/librustdesk.dylib")
     os.chdir('flutter')
     system2('flutter build macos --release')
+
+    # Copy service binary
     system2('cp -rf ../target/release/service ./build/macos/Build/Products/Release/BlockStarDesk.app/Contents/MacOS/')
+
+    # CRITICAL: Ensure librustdesk.dylib is copied
+    app_path = './build/macos/Build/Products/Release/BlockStarDesk.app'
+    frameworks_path = f'{app_path}/Contents/Frameworks'
+    system2(f'mkdir -p {frameworks_path}')
+    system2(f'cp -f ../target/release/librustdesk.dylib {frameworks_path}/')
+
+    # Fix install names
+    system2(f'install_name_tool -id @rpath/librustdesk.dylib {frameworks_path}/librustdesk.dylib')
     '''
     system2(
         "create-dmg --volname \"BlockStar Desktop Installer\" --window-pos 200 120 --window-size 800 400 --icon-size 100 --app-drop-link 600 185 --icon BlockStarDesk.app 200 190 --hide-extension BlockStarDesk.app rustdesk.dmg ./build/macos/Build/Products/Release/BlockStarDesk.app")
