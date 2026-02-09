@@ -23,7 +23,7 @@ struct DbusError(String);
 
 impl fmt::Display for DbusError {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
-        write!(f, "BlockStarDesk DBus Error: {}", self.0)
+        write!(f, "BlockStar Desktop DBus Error: {}", self.0)
     }
 }
 

@@ -1,15 +1,15 @@
 [package]
-name = "rustdesk"
+name = "blockstardesktop"
 version = "1.4.5"
-authors = ["rustdesk <info@rustdesk.com>"]
+authors = ["blockstar <info@blockstar.site>"]
 edition = "2021"
 build= "build.rs"
 description = "BlockStarDesk Remote Desktop"
-default-run = "rustdesk"
+default-run = "blockstardesktop"
 rust-version = "1.75"
 
 [lib]
-name = "librustdesk"
+name = "libblockstardesktop"
 crate-type = ["cdylib", "staticlib", "rlib"]
 
 [[bin]]

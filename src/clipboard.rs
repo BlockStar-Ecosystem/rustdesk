@@ -432,7 +432,7 @@ impl ClipboardContext {
                 #[cfg(target_os = "macos")]
                 let is_kde_x11 = false;
                 let clear_holder_text = if is_kde_x11 {
-                    "BlockStarDesk placeholder to clear the file clipbard"
+                    "BlockStar Desktop placeholder to clear the file clipbard"
                 } else {
                     ""
                 }

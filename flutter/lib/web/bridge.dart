@@ -1609,8 +1609,8 @@ class RustdeskImpl {
   }
 
   bool isCustomClient({dynamic hint}) {
-    // is_custom_client() checks if app name is not "BlockStarDesk"
-    return mainGetAppNameSync(hint: hint) != "BlockStarDesk";
+    // is_custom_client() checks if app name is not "BlockStar Desktop"
+    return mainGetAppNameSync(hint: hint) != "BlockStar Desktop";
   }
 
   bool isDisableSettings({dynamic hint}) {

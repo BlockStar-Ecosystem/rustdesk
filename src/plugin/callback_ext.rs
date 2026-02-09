@@ -32,7 +32,7 @@ pub(super) fn ext_support_callback(
             } else {
                 PluginReturn::new(
                     errno::ERR_CALLBACK_PLUGIN_ID,
-                    &format!("This operation is not supported for plugin '{}', please contact the BlockStarDesk team for support.", id),
+                    &format!("This operation is not supported for plugin '{}', please contact the BlockStar Desktop team for support.", id),
                 )
             }
         }

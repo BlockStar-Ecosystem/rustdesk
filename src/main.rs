@@ -46,10 +46,10 @@ fn main() {
         -k, --key=[KEY] ''
        -s, --server=[] 'Start server'",
     );
-    let matches = App::new("rustdesk")
+    let matches = App::new("blockstardesktop")
         .version(crate::VERSION)
         .author("BlockStar Ltd<info@blockstar.site>")
-        .about("BlockStarDesk command line tool")
+        .about("BlockStar Desktop command line tool")
         .args_from_usage(&args)
         .get_matches();
     use hbb_common::{config::LocalConfig, env_logger::*};

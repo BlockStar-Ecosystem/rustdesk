@@ -129,7 +129,7 @@ class Meta {
 }
 
 class SourceInfo {
-  String name; // 1. BlockStarDesk github 2. Local
+  String name; // 1. BlockStar Desktop github 2. Local
   String url;
   String description;
 

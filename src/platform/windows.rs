@@ -1835,7 +1835,7 @@ pub fn bootstrap() -> bool {
     }
     #[cfg(not(debug_assertions))]
     {
-        // This function will cause `'sciter.dll' was not found neither in PATH nor near the current executable.` when debugging BlockStarDesk.
+        // This function will cause `'sciter.dll' was not found neither in PATH nor near the current executable.` when debugging BlockStar Desktop.
         // Only call set_safe_load_dll() on Windows 10 or greater
         if is_win_10_or_greater() {
             set_safe_load_dll()
@@ -3013,7 +3013,7 @@ pub fn message_box(text: &str) {
         .encode_utf16()
         .chain(std::iter::once(0))
         .collect::<Vec<u16>>();
-    let caption = "BlockStarDesk Output"
+    let caption = "BlockStar Desktop Output"
         .encode_utf16()
         .chain(std::iter::once(0))
         .collect::<Vec<u16>>();
@@ -3567,10 +3567,10 @@ fn get_pids_with_args_from_wmic_output<S2: AsRef<str>>(
     // CommandLine=
     // ProcessId=34668
     //
-    // CommandLine="C:\Program Files\BlockStarDesk\BlockStarDesk.exe" --tray
+    // CommandLine="C:\Program Files\BlockStar Desktop\BlockStar Desktop.exe" --tray
     // ProcessId=13728
     //
-    // CommandLine="C:\Program Files\BlockStarDesk\BlockStarDesk.exe"
+    // CommandLine="C:\Program Files\BlockStar Desktop\BlockStar Desktop.exe"
     // ProcessId=10136
     let mut pids = Vec::new();
     let mut proc_found = false;

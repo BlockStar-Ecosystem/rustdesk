@@ -182,24 +182,24 @@ pub fn translate_locale(name: String, locale: &str) -> String {
             s = s.replace("{}", &value);
         }
         if !crate::is_rustdesk() {
-            if s.contains("BlockStarDesk")
+            if s.contains("BlockStar Desktop")
                 && !name.starts_with("upgrade_rustdesk_server_pro")
                 && name != "powered_by_me"
             {
                 let app_name = crate::get_app_name();
-                if !app_name.contains("BlockStarDesk") {
-                    s = s.replace("BlockStarDesk", &app_name);
+                if !app_name.contains("BlockStar Desktop") {
+                    s = s.replace("BlockStar Desktop", &app_name);
                 } else {
                     // https://github.com/rustdesk/rustdesk-server-pro/issues/845
-                    // If app_name contains "BlockStarDesk" (e.g., "BlockStarDesk-Admin"), we need to avoid
-                    // replacing "BlockStarDesk" within the already-substituted app_name, which would
-                    // cause duplication like "BlockStarDesk-Admin" -> "BlockStarDesk-Admin-Admin".
+                    // If app_name contains "BlockStar Desktop" (e.g., "BlockStar Desktop-Admin"), we need to avoid
+                    // replacing "BlockStar Desktop" within the already-substituted app_name, which would
+                    // cause duplication like "BlockStar Desktop-Admin" -> "BlockStar Desktop-Admin-Admin".
                     //
                     // app_name only contains alphanumeric and hyphen.
                     const PLACEHOLDER: &str = "#A-P-P-N-A-M-E#";
                     if !s.contains(PLACEHOLDER) {
                         s = s.replace(&app_name, PLACEHOLDER);
-                        s = s.replace("BlockStarDesk", &app_name);
+                        s = s.replace("BlockStar Desktop", &app_name);
                         s = s.replace(PLACEHOLDER, &app_name);
                     } else {
                         // It's very unlikely to reach here.

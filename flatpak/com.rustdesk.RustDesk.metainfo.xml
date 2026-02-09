@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component type="desktop-application">
-  <id>com.rustdesk.BlockStarDesk</id>
-  <developer id="com.rustdesk">
-    <name>BlockStarDesk</name>
+  <id>com.blockstar.desktop</id>
+  <developer id="com.blockstar">
+    <name>BlockStar Desktop</name>
   </developer>
-  <launchable type="desktop-id">com.rustdesk.BlockStarDesk.desktop</launchable>
+  <launchable type="desktop-id">com.blockstar.desktop.desktop</launchable>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>AGPL-3.0-only</project_license>
-  <name>BlockStarDesk</name>
+  <name>BlockStar Desktop</name>
   <summary>Secure remote desktop access</summary>
   <description>
     <p>
-        BlockStarDesk is a full-featured open source remote control alternative for self-hosting and security with minimal configuration.
+        BlockStar Desktop is a full-featured open source remote control alternative for self-hosting and security with minimal configuration.
     </p>
     <ul>
       <li> Works on Windows, macOS, Linux, iOS, Android, Web. </li>

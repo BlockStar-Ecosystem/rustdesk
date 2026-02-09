@@ -312,8 +312,8 @@ fn correct_app_name(s: &str) -> String {
     if let Some(bundleid) = get_bundle_id() {
         s = s.replace("com.carriez.rustdesk", &bundleid);
     }
-    s = s.replace("rustdesk", &crate::get_app_name().to_lowercase());
-    s = s.replace("BlockStarDesk", &crate::get_app_name());
+    s = s.replace("blockstardesktop", &crate::get_app_name().to_lowercase());
+    s = s.replace("BlockStar Desktop", &crate::get_app_name());
     s
 }
 
@@ -740,8 +740,8 @@ pub fn start_os_service() {
     /* // mouse/keyboard works in prelogin now with launchctl asuser.
        // below can avoid multi-users logged in problem, but having its own below problem.
        // Not find a good way to start --cm without root privilege (affect file transfer).
-       // one way is to start with `launchctl asuser <uid> open -n -a /Applications/BlockStarDesk.app/ --args --cm`,
-       // this way --cm is started with the user privilege, but we will have problem to start another BlockStarDesk.app
+       // one way is to start with `launchctl asuser <uid> open -n -a /Applications/BlockStar Desktop.app/ --args --cm`,
+       // this way --cm is started with the user privilege, but we will have problem to start another BlockStar Desktop.app
        // with open in explorer.
         use std::sync::{
             atomic::{AtomicBool, Ordering},
@@ -837,7 +837,7 @@ pub fn update_me() -> ResultType<()> {
     );
 
     let cmd = std::env::current_exe()?;
-    // BlockStarDesk.app/Contents/MacOS/BlockStarDesk
+    // BlockStar Desktop.app/Contents/MacOS/BlockStar Desktop
     let app_dir = cmd
         .parent()
         .and_then(|p| p.parent())

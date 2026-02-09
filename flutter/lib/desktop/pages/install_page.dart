@@ -129,7 +129,7 @@ class _InstallPageBodyState extends State<_InstallPageBody>
   @override
   Widget build(BuildContext context) {
     final double em = 13;
-    final isDarkTheme = MyTheme.currentThemeMode() == ThemeMode.dark;
+    final isDarkTheme = true; // BlockStar Desktop: Always dark
     return Scaffold(
         backgroundColor: null,
         body: SingleChildScrollView(
@@ -169,11 +169,9 @@ class _InstallPageBodyState extends State<_InstallPageBody>
               Container(
                   padding: EdgeInsets.all(12),
                   decoration: BoxDecoration(
-                    color: isDarkTheme
-                        ? Color.fromARGB(135, 87, 87, 90)
-                        : Colors.grey[100],
+                    color: Color(0xFF111B2E),
                     borderRadius: BorderRadius.circular(8),
-                    border: Border.all(color: Colors.grey),
+                    border: Border.all(color: Color(0xFF1A2235)),
                   ),
                   child: Row(
                     children: [

@@ -1,4 +1,4 @@
-# BlockStarDesk msi project
+# BlockStar Desktop msi project
 
 Use Visual Studio 2022 to compile this project.
 

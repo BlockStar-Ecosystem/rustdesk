@@ -640,7 +640,7 @@ class _DesktopTabState extends State<DesktopTab>
                         Offstage(
                             offstage: !showTitle,
                             child: const Text(
-                              "BlockStarDesk",
+                              "BlockStar Desktop",
                               style: TextStyle(fontSize: 13),
                             ).marginOnly(left: 2))
                       ]).marginOnly(
@@ -1456,27 +1456,27 @@ class TabbarTheme extends ThemeExtension<TabbarTheme> {
 
   static const light = TabbarTheme(
       selectedTabIconColor: MyTheme.accent,
-      unSelectedTabIconColor: Color.fromARGB(255, 162, 203, 241),
-      selectedTextColor: Colors.black,
-      unSelectedTextColor: Color.fromARGB(255, 112, 112, 112),
-      selectedIconColor: Color.fromARGB(255, 26, 26, 26),
-      unSelectedIconColor: Color.fromARGB(255, 96, 96, 96),
-      dividerColor: Color.fromARGB(255, 238, 238, 238),
-      hoverColor: Colors.white54,
-      closeHoverColor: Colors.white,
-      selectedTabBackgroundColor: Colors.white54);
+      unSelectedTabIconColor: Color(0xFF1A3A5C),
+      selectedTextColor: Colors.white,
+      unSelectedTextColor: Color(0xFF8B95A5),
+      selectedIconColor: Colors.white,
+      unSelectedIconColor: Color(0xFF8B95A5),
+      dividerColor: Color(0xFF1A2235),
+      hoverColor: Color(0xFF111B2E),
+      closeHoverColor: Color(0xFF0D1420),
+      selectedTabBackgroundColor: Color(0xFF111B2E));
 
   static const dark = TabbarTheme(
       selectedTabIconColor: MyTheme.accent,
-      unSelectedTabIconColor: Color.fromARGB(255, 30, 65, 98),
+      unSelectedTabIconColor: Color(0xFF1A3A5C),
       selectedTextColor: Colors.white,
-      unSelectedTextColor: Color.fromARGB(255, 192, 192, 192),
-      selectedIconColor: Color.fromARGB(255, 192, 192, 192),
-      unSelectedIconColor: Color.fromARGB(255, 255, 255, 255),
-      dividerColor: Color.fromARGB(255, 64, 64, 64),
-      hoverColor: Colors.black26,
-      closeHoverColor: Colors.black,
-      selectedTabBackgroundColor: Colors.black26);
+      unSelectedTextColor: Color(0xFF8B95A5),
+      selectedIconColor: Colors.white,
+      unSelectedIconColor: Color(0xFF8B95A5),
+      dividerColor: Color(0xFF1A2235),
+      hoverColor: Color(0xFF111B2E),
+      closeHoverColor: Color(0xFF0D1420),
+      selectedTabBackgroundColor: Color(0xFF111B2E));
 
   @override
   ThemeExtension<TabbarTheme> copyWith({
